@@ -1,0 +1,46 @@
+<div class="embedded">
+  <div class="search-bar">
+    <input
+      type="text"
+      [(ngModel)]="barcode"
+      placeholder="Enter barcode..."
+      (keydown.enter)="onSearch()"
+    />
+    <button (click)="onSearch()" [disabled]="!barcode.trim()">Lookup</button>
+  </div>
+
+  @if (loading()) {
+    <div class="state">Loading...</div>
+  }
+
+  @if (notFound()) {
+    <div class="state not-found">Product not found</div>
+  }
+
+  @if (product(); as p) {
+    <div class="product-card">
+      @if (p.image_url) {
+        <img [src]="p.image_url" [alt]="p.product_name" class="thumbnail" />
+      }
+      <div class="info">
+        <div class="name">{{ p.product_name || 'Unknown' }}</div>
+        @if (p.brands) {
+          <div class="brand">{{ p.brands }}</div>
+        }
+        <div class="badges">
+          @if (p.nutriscore_grade) {
+            <app-nutriscore-badge [grade]="p.nutriscore_grade" />
+          }
+        </div>
+        @if (p.allergens_tags && p.allergens_tags.length > 0) {
+          <div class="allergens">
+            @for (tag of p.allergens_tags; track tag) {
+              <span class="allergen-chip">{{ formatAllergen(tag) }}</span>
+            }
+          </div>
+        }
+      </div>
+    </div>
+    <button class="details-btn" (click)="openPopup()">Details</button>
+  }
+</div>

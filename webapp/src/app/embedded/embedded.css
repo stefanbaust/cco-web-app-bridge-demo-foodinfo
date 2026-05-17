@@ -1,0 +1,136 @@
+:host {
+  display: block;
+  font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
+  padding: 8px;
+}
+
+.embedded {
+  display: flex;
+  flex-direction: column;
+  gap: 8px;
+}
+
+.search-bar {
+  display: flex;
+  gap: 4px;
+}
+
+.search-bar input {
+  flex: 1;
+  padding: 6px 8px;
+  font-size: 12px;
+  border: 1px solid #ccc;
+  border-radius: 4px;
+  outline: none;
+}
+
+.search-bar input:focus {
+  border-color: #0066cc;
+}
+
+.search-bar button {
+  padding: 6px 10px;
+  font-size: 12px;
+  border: none;
+  border-radius: 4px;
+  cursor: pointer;
+  background: #0066cc;
+  color: #fff;
+}
+
+.search-bar button:hover {
+  background: #0052a3;
+}
+
+.search-bar button:disabled {
+  background: #aaa;
+  cursor: not-allowed;
+}
+
+.state {
+  font-size: 12px;
+  color: #666;
+  text-align: center;
+  padding: 8px;
+}
+
+.state.not-found {
+  color: #c00;
+}
+
+.product-card {
+  display: flex;
+  gap: 8px;
+  background: #fff;
+  border: 1px solid #e0e0e0;
+  border-radius: 6px;
+  padding: 8px;
+}
+
+.thumbnail {
+  width: 50px;
+  height: 50px;
+  object-fit: contain;
+  border-radius: 4px;
+  flex-shrink: 0;
+}
+
+.info {
+  flex: 1;
+  min-width: 0;
+  display: flex;
+  flex-direction: column;
+  gap: 2px;
+}
+
+.name {
+  font-size: 12px;
+  font-weight: 600;
+  color: #333;
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
+}
+
+.brand {
+  font-size: 11px;
+  color: #666;
+}
+
+.badges {
+  display: flex;
+  gap: 4px;
+  align-items: center;
+  margin-top: 2px;
+}
+
+.allergens {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 3px;
+  margin-top: 4px;
+}
+
+.allergen-chip {
+  font-size: 10px;
+  padding: 2px 5px;
+  background: #fee;
+  color: #c00;
+  border-radius: 3px;
+  border: 1px solid #fcc;
+}
+
+.details-btn {
+  width: 100%;
+  padding: 6px;
+  font-size: 12px;
+  border: none;
+  border-radius: 4px;
+  cursor: pointer;
+  background: #0066cc;
+  color: #fff;
+}
+
+.details-btn:hover {
+  background: #0052a3;
+}
