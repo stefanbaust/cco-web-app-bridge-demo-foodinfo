@@ -1,6 +1,7 @@
 import { Component, signal, OnInit } from '@angular/core';
 import { CommonModule } from '@angular/common';
 import { FormsModule } from '@angular/forms';
+import { ActivatedRoute } from '@angular/router';
 import { POSBridgeService } from '../pos-bridge.service';
 import { ProductInfoService } from '../product-info.service';
 import { Product } from '../shared/product.model';
@@ -37,11 +38,18 @@ export class PopupComponent implements OnInit {
   constructor(
     private pos: POSBridgeService,
     private productInfo: ProductInfoService,
+    private route: ActivatedRoute,
   ) {}
 
   ngOnInit(): void {
     this.pos.ready$.subscribe(() => {
       this.connected.set(true);
+    });
+
+    this.route.queryParams.subscribe((params) => {
+      if (params['gtin']) {
+        this.lookup(params['gtin']);
+      }
     });
   }
 

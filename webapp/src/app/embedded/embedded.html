@@ -2,11 +2,12 @@
   <div class="search-bar">
     <input
       type="text"
-      [(ngModel)]="barcode"
+      [ngModel]="barcode()"
+      (ngModelChange)="barcode.set($event)"
       placeholder="Enter barcode..."
       (keydown.enter)="onSearch()"
     />
-    <button (click)="onSearch()" [disabled]="!barcode.trim()">Lookup</button>
+    <button (click)="onSearch()">Lookup</button>
   </div>
 
   @if (loading()) {

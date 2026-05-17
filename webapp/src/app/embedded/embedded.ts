@@ -18,7 +18,7 @@ export class EmbeddedComponent implements OnInit, OnDestroy {
   product = signal<Product | null>(null);
   loading = signal(false);
   notFound = signal(false);
-  barcode = '';
+  barcode = signal<string | null>(null);
 
   private storeSub: any;
 
@@ -34,11 +34,13 @@ export class EmbeddedComponent implements OnInit, OnDestroy {
       this.connected.set(true);
 
       const selectedItem = await receiptStore.getSelectedItem();
+      this.barcode.set(selectedItem?.material?.gtin || null);
       this.lookup(selectedItem?.material?.gtin);
     });
 
     this.storeSub = receiptStore.subscribe(async () => {
       const selectedItem = await receiptStore.getSelectedItem();
+      this.barcode.set(selectedItem?.material?.gtin || null);
       this.lookup(selectedItem?.material?.gtin);
     });
   }
@@ -49,9 +51,10 @@ export class EmbeddedComponent implements OnInit, OnDestroy {
     }
   }
 
-  lookup(barcode: string): void {
-    if (!barcode.trim()) {
+  lookup(barcode: string | null): void {
+    if (!barcode?.trim()) {
       this.product.set(null);
+      return;
     }
     this.loading.set(true);
     this.notFound.set(false);
@@ -71,11 +74,11 @@ export class EmbeddedComponent implements OnInit, OnDestroy {
   }
 
   onSearch(): void {
-    this.lookup(this.barcode);
+    this.lookup(this.barcode());
   }
 
   openPopup(): void {
-    this.pos.pushEvent(`${BRIDGE_PREFIX}_SHOW_WEBVIEW`, {});
+    this.pos.pushEvent(`${BRIDGE_PREFIX}_SHOW_WEBVIEW`, { gtin: this.barcode() });
   }
 
   formatAllergen(tag: string): string {
