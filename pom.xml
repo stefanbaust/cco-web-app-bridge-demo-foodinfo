@@ -6,6 +6,13 @@
     <groupId>dev.baust.cco.webapp.demo.foodinfo</groupId>
     <artifactId>cco-web-app-bridge-demo-foodinfo</artifactId>
     <version>0.1-SNAPSHOT</version>
+    <licenses>
+        <license>
+            <name>MIT License</name>
+            <url>https://opensource.org/licenses/MIT</url>
+            <distribution>repo</distribution>
+        </license>
+    </licenses>
     <properties>
         <sap.scco.pluginClass>dev.baust.cco.webapp.demo.foodinfo.FoodInfoPlugin</sap.scco.pluginClass>
         <sap.scco.POSVersions>3.0 FP2502, 3.0 FP2503, n/a</sap.scco.POSVersions>
