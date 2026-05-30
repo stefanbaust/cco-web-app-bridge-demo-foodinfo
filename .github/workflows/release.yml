@@ -19,6 +19,9 @@ jobs:
           distribution: 'temurin'
           cache: 'maven'
 
+      - name: Set version from tag
+        run: mvn versions:set -DnewVersion=${GITHUB_REF_NAME#v} -DgenerateBackupPoms=false
+
       - name: Build shaded JAR
         run: mvn package -s .mvn/settings.xml
         env:
