@@ -1,6 +1,6 @@
 # FoodInfo Plugin
 
-A demo plugin for [cco-web-app-bridge](../cco-web-app-bridge) that displays product nutritional information from [Open Food Facts](https://world.openfoodfacts.org/) inside SAP Customer Checkout.
+A demo plugin for [cco-web-app-bridge](https://github.com/stefanbaust/cco-web-app-bridge) that displays product nutritional information from [Open Food Facts](https://world.openfoodfacts.org/) inside SAP Customer Checkout.
 
 ## Features
 
