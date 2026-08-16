@@ -15,7 +15,7 @@
     </licenses>
     <properties>
         <sap.scco.pluginClass>dev.baust.cco.webapp.demo.foodinfo.FoodInfoPlugin</sap.scco.pluginClass>
-        <sap.scco.POSVersions>3.0 FP2502, 3.0 FP2503, n/a</sap.scco.POSVersions>
+        <sap.scco.POSVersions>3.0 FP2502, 3.0 FP2503, 3.0 FP2601, 3.0 FP2602, n/a</sap.scco.POSVersions>
         <maven.compiler.source>17</maven.compiler.source>
         <maven.compiler.target>17</maven.compiler.target>
         <project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
@@ -26,7 +26,7 @@
         <dependency>
             <groupId>dev.baust.cco.webapp.bridge</groupId>
             <artifactId>cco-web-app-bridge</artifactId>
-            <version>0.1.3</version>
+            <version>0.1.4</version>
         </dependency>
         <dependency>
             <groupId>com.sap.customercheckout.pos</groupId>
