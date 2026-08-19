@@ -39,3 +39,7 @@ jobs:
           -Dsonar.organization=stefanbaust
           -Dsonar.projectKey=stefanbaust_cco-web-app-bridge-demo-foodinfo
           -Dsonar.sources=src/main/java,webapp/src
+          -Dsonar.tests=src/test/java,webapp/src
+          -Dsonar.test.inclusions=webapp/src/**/*.spec.ts
+          -Dsonar.exclusions=webapp/src/**/*.spec.ts
+          -Dsonar.javascript.lcov.reportPaths=webapp/coverage/webapp/lcov.info
