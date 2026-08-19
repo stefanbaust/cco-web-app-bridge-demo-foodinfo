@@ -120,6 +120,20 @@ class FoodInfoPluginTest {
                 "webapp prefix " + matcher.group(1) + " does not match the prefix used by the plugin");
     }
 
+    /**
+     * index.html loads the SDK from the Angular assets so that `ng serve` works without a POS.
+     * That copy has to stay identical to the one shipped inside the bridge jar, otherwise a
+     * bridge upgrade silently leaves the demo talking an older protocol.
+     */
+    @Test
+    void bundledSdkCopyMatchesTheOneShippedWithTheBridge() throws Exception {
+        String fromBridgeJar = readAll(getClass().getResourceAsStream("/pos-bridge-sdk.js"));
+        String fromWebappAssets = Files.readString(Path.of("webapp/src/assets/pos-bridge-sdk.js"));
+
+        assertEquals(fromBridgeJar, fromWebappAssets,
+                "webapp/src/assets/pos-bridge-sdk.js is out of sync with the bridge dependency");
+    }
+
     @Test
     void doesNotInjectAnyCss() {
         assertEquals(0, new FoodInfoPlugin().cssInject().length);
