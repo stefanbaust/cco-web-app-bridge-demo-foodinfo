@@ -15,7 +15,7 @@ It is a working example of the two things the bridge does: it embeds an Angular 
 
 | | |
 |---|---|
-| SAP Customer Checkout | cloud edition 3.0, FP2502 / FP2503 / FP2601 / FP2602 |
+| SAP Customer Checkout | cloud edition 3.0, FP2502 / FP2503 / FP2602 |
 | cco-web-app-bridge | 0.1.5 |
 | Java | 17 |
 

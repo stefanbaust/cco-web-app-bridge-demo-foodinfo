@@ -18,6 +18,10 @@ do not infer support from a build dependency alone.
 - `v0.1.0` (f5b796cee8e8): CLOUD FP2502, CLOUD FP2503
 - `v0.2.0` (9d6445c1e23d): CLOUD FP2502, CLOUD FP2503, CLOUD FP2601, CLOUD FP2602
 
+FP2601 was removed from the declaration on 2026-10-11. SAP never released a
+point-of-sale version 3.0 FP2601 (SAP Note 3625094 lists 2502, 2503 and 2602;
+2601 exists only for the cloud manager), so no register could match it.
+
 
 Unknown or unlisted targets are not a claim of incompatibility. They need a
 confirmed support declaration before being added to the portal filter.
